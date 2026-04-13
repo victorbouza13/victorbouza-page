@@ -1,0 +1,5 @@
+{
+  "category": "Lenguajes",
+  "technologies": ["TypeScript", "JavaScript", "Python", "C#", "Java", "SQL", "PL/SQL"],
+  "order": 3
+}

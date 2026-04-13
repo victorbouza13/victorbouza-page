@@ -1,0 +1,5 @@
+{
+  "category": "Datos y Observabilidad",
+  "technologies": ["Apache Airflow", "Apache Superset", "Grafana", "OpenSearch", "Power BI"],
+  "order": 6
+}

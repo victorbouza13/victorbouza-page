@@ -1,33 +1,16 @@
 ---
-import BentoInfo from "@components/BentoInfo.astro";
-import CoolJobs from "@components/CoolJobs.astro";
-import HeroSearch from "@components/HeroSearch.astro";
-import SocialBest from "@components/SocialBest.astro";
-import PreFooter from "@components/PreFooter.astro";
-import InfographicModal from "@components/InfographicModal.astro";
-import StandsInterviews from "@components/StandsInterviews.astro";
-
-import Layout from "@layouts/Layout.astro";
-
-import EmergentPositions from "@components/EmergentPositions.astro";
-
-import YourNextJob from "@components/YourNextJob.astro";
-
+import Hero from "../components/Hero.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import TechStack from "../components/TechStack.astro";
+import EducationCard from "../components/EducationCard.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="InfoJobs - ¡Encuentra tu primer empleo!">
-  <HeroSearch />
-  <BentoInfo />
-  <SocialBest />
-  <CoolJobs />
-  <PreFooter />
-  <InfographicModal />
-
-  <!-- Infografías -->
-  <StandsInterviews infographicId="no-experience" />
-
-  <EmergentPositions infographicId="emergent-positions" />
-
-  <YourNextJob infographicId="selection-process" />
-
+<Layout title="Víctor Bouza - Full Stack & Backend Developer">
+  <main class="min-h-screen bg-slate-50 dark:bg-slate-950 px-4 sm:px-6 lg:px-8">
+    <Hero />
+    <ExperienceTimeline />
+    <TechStack />
+    <EducationCard />
+  </main>
 </Layout>

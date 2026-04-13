@@ -1,0 +1,5 @@
+{
+  "category": "Bases de Datos",
+  "technologies": ["PostgreSQL", "Oracle DB", "MySQL", "MongoDB", "SQLite", "Supabase"],
+  "order": 4
+}

@@ -1,0 +1,25 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const skills = await getCollection('skills');
+const sortedSkills = skills.sort((a: CollectionEntry<'skills'>, b: CollectionEntry<'skills'>) => (a.data.order || 0) - (b.data.order || 0));
+---
+<section class="max-w-4xl mx-auto py-12 px-4 sm:px-6">
+  <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Tech Stack</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {sortedSkills.map((skillGroup: CollectionEntry<'skills'>) => (
+      <div class="border border-slate-200 dark:border-slate-800 rounded-lg p-5 bg-white dark:bg-slate-900 shadow-sm transition-shadow hover:shadow-md">
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">
+          {skillGroup.data.category}
+        </h4>
+        <div class="flex flex-wrap gap-2">
+          {skillGroup.data.technologies.map((tech: string) => (
+            <span class="px-3 py-1 rounded-md text-sm font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition-colors">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

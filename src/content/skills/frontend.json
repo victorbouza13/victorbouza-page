@@ -1,0 +1,5 @@
+{
+  "category": "Frontend",
+  "technologies": ["Angular", "Next.js", "React", "TypeScript", "JavaScript", "HTML", "CSS", "TailwindCSS"],
+  "order": 2
+}
