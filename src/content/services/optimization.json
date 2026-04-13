@@ -1,0 +1,6 @@
+{
+  "title": "Arquitecturas Escalables",
+  "description": "Diseño de infraestructuras backend orientadas a la escalabilidad y disponibilidad, resolviendo los cuellos de botella mediante microservicios y optimización de base de datos.",
+  "icon": "cloud",
+  "order": 3
+}

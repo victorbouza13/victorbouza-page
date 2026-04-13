@@ -1,0 +1,6 @@
+{
+  "title": "Arquitectura de Datos y ETL",
+  "description": "Implementación de flujos de datos complejos y pipelines ETL. Manejo eficiente de grandes volúmenes de datos garantizando integridad y disponibilidad.",
+  "icon": "database",
+  "order": 2
+}

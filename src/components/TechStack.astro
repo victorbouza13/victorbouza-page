@@ -2,24 +2,44 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const skills = await getCollection('skills');
-const sortedSkills = skills.sort((a: CollectionEntry<'skills'>, b: CollectionEntry<'skills'>) => (a.data.order || 0) - (b.data.order || 0));
+const sortedSkills = skills.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 ---
-<section class="max-w-4xl mx-auto py-12 px-4 sm:px-6">
-  <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Tech Stack</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {sortedSkills.map((skillGroup: CollectionEntry<'skills'>) => (
-      <div class="border border-slate-200 dark:border-slate-800 rounded-lg p-5 bg-white dark:bg-slate-900 shadow-sm transition-shadow hover:shadow-md">
-        <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">
-          {skillGroup.data.category}
-        </h4>
-        <div class="flex flex-wrap gap-2">
-          {skillGroup.data.technologies.map((tech: string) => (
-            <span class="px-3 py-1 rounded-md text-sm font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition-colors">
-              {tech}
-            </span>
-          ))}
-        </div>
+
+<section id="skills" class="py-20 bg-slate-50/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 flex flex-col items-center">
+      <div class="group inline-block cursor-default">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+          Habilidades <span class="text-green-600">Técnicas</span>
+        </h2>
+        <div class="h-1 bg-green-500 mx-auto rounded-full w-0 group-hover:w-full transition-all duration-500 ease-out"></div>
       </div>
-    ))}
+      <p class="text-slate-600 mt-4 max-w-2xl">
+        Stack de tecnologías y herramientas que utilizo para dar vida a soluciones robustas y escalables.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedSkills.map((skillGroup) => (
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+          <div class="flex items-center mb-5">
+            <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">{skillGroup.data.category}</h3>
+          </div>
+          
+          <div class="flex flex-wrap gap-2">
+            {skillGroup.data.technologies.map((tech: string) => (
+              <span class="px-3 py-1.5 rounded-lg text-sm font-medium bg-slate-50 text-slate-600 border border-slate-100 hover:border-green-200 hover:text-green-600 hover:bg-green-50 transition-all duration-200">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>

@@ -1,7 +1,14 @@
 {
   "name": "Víctor Bouza",
-  "title": "Ingeniero en Sistemas de Información / Full Stack & Backend Developer",
-  "bio": "Ingeniero en Sistemas de Información con amplia experiencia en desarrollo Full Stack y Backend. Especializado en ecosistemas Node.js, Python, Angular y Next.js. Enfocado en el diseño de APIs RESTful, flujos ETL de alto rendimiento y arquitecturas escalables.",
+  "title": "Ingeniero en Sistemas de Información",
+  "subtitle": "Full Stack | Data Engineer",
+  "bio": "Ingeniero en Sistemas de Información (UTN) con 3 años de experiencia en desarrollo Full Stack, backend e ingeniería de datos. He diseñado e implementado soluciones para Claro Argentina, el Ministerio de Educación de Córdoba y diversos proyectos freelance end-to-end. Mi experiencia técnica se centra en Python, Node.js, Angular y Next.js, con un fuerte enfoque en la construcción de APIs RESTful, pipelines ETL y arquitecturas robustas y escalables.",
   "location": "Córdoba, Argentina",
-  "english_level": "B2 (Intermedio)"
+  "english_level": "B2 (Intermedio)",
+  "age": "24",
+  "phone": "+5493804509708",
+  "email": "victorbouza77@gmail.com",
+  "github": "https://github.com/victorbouza13",
+  "linkedin": "https://linkedin.com/in/victorbouza",
+  "cv_link": "/victor_bouza_cv.pdf"
 }

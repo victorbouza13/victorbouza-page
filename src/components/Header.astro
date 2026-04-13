@@ -1,23 +1,178 @@
 ---
-import Button from "./ui/Button.astro"
+const navItems = [
+  { name: "Inicio", href: "#home" },
+  { name: "Sobre mí", href: "#about" },
+  { name: "Tecnologías", href: "#skills" },
+  { name: "Servicios", href: "#services" },
+  { name: "Experiencia", href: "#resume" },
+  { name: "Portafolio", href: "#portfolio" },
+  { name: "Contacto", href: "#contact" },
+];
 ---
 
-<header
-  id="header"
-  class="py-4 px-8 flex justify-between items-center md:max-w-[1400px] md:mx-auto sticky top-0 right-0 left-0 bg-white/70 z-50 mb-4 backdrop-blur-xl"
->
-  <a href="#" aria-label="Regresar a la página de inicio"
-    ><img src="/logo.svg" alt="Logo InfoJobs" class="w-auto h-[30px]" /></a
-  >
+<header id="main-header" data-mode="dark" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#home" class="header-logo text-2xl font-bold tracking-tight group">
+          Víctor<span class="text-green-500">.</span>
+        </a>
+      </div>
 
-  <Button
-    variant="solid"
-    color="primary"
-    size="lg"
-    radius="full"
-    as="link"
-    href="https://www.infojobs.net/candidate/candidate-login/candidate-login.xhtml"
-  >
-    Crea tu cuenta
-  </Button>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+          {navItems.map((item) => (
+            <li>
+              <a href={item.href} class="header-nav-link text-sm font-medium">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle (CSS ONLY) -->
+      <div class="md:hidden flex items-center">
+        <label for="mobile-menu-toggle" class="header-mobile-btn cursor-pointer p-2">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+  <div class="header-mobile-menu md:hidden hidden peer-checked:block absolute w-full left-0 top-16 border-b">
+    <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href} class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </header>
+
+<style>
+  /* ── Base transitions ─────────────────────────────────────── */
+  #main-header {
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .header-logo,
+  .header-nav-link,
+  .header-mobile-btn,
+  .mobile-nav-link {
+    transition: color 0.5s ease, background-color 0.3s ease;
+  }
+
+  .header-mobile-menu {
+    transition: background-color 0.5s ease;
+  }
+
+  /* ── DARK mode (over Hero) ────────────────────────────────── */
+  #main-header[data-mode="dark"] {
+    background-color: #0a0a0c;
+    border-color: rgba(255,255,255,0.05);
+    box-shadow: none;
+  }
+
+  #main-header[data-mode="dark"] .header-logo {
+    color: white;
+  }
+
+  #main-header[data-mode="dark"] .header-nav-link {
+    color: white;
+  }
+
+  #main-header[data-mode="dark"] .header-nav-link:hover {
+    color: #22c55e; /* green-500 */
+  }
+
+  #main-header[data-mode="dark"] .header-mobile-btn {
+    color: rgba(255,255,255,0.7);
+  }
+
+  #main-header[data-mode="dark"] .header-mobile-btn:hover {
+    color: white;
+  }
+
+  #main-header[data-mode="dark"] .header-mobile-menu {
+    background-color: rgba(15, 23, 42, 0.95);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  #main-header[data-mode="dark"] .mobile-nav-link {
+    color: rgba(255,255,255,0.7);
+  }
+
+  #main-header[data-mode="dark"] .mobile-nav-link:hover {
+    color: #22c55e;
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  /* ── LIGHT mode (over content) ────────────────────────────── */
+  #main-header[data-mode="light"] {
+    background-color: white;
+    border-color: #e2e8f0; /* slate-200 */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  #main-header[data-mode="light"] .header-logo {
+    color: #0f172a; /* slate-900 */
+  }
+
+  #main-header[data-mode="light"] .header-nav-link {
+    color: #1e293b; /* slate-800 */
+  }
+
+  #main-header[data-mode="light"] .header-nav-link:hover {
+    color: #22c55e;
+  }
+
+  #main-header[data-mode="light"] .header-mobile-btn {
+    color: #64748b; /* slate-500 */
+  }
+
+  #main-header[data-mode="light"] .header-mobile-btn:hover {
+    color: #0f172a;
+  }
+
+  #main-header[data-mode="light"] .header-mobile-menu {
+    background-color: white;
+    border-color: #e2e8f0;
+  }
+
+  #main-header[data-mode="light"] .mobile-nav-link {
+    color: #1e293b;
+  }
+
+  #main-header[data-mode="light"] .mobile-nav-link:hover {
+    color: #22c55e;
+    background-color: #f8fafc;
+  }
+</style>
+
+<script>
+  const header = document.getElementById('main-header');
+  const heroSection = document.getElementById('home');
+
+  function updateHeader() {
+    if (!header || !heroSection) return;
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    const scrollY = window.scrollY;
+    header.dataset.mode = scrollY >= heroBottom - 64 ? 'light' : 'dark';
+  }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+</script>

@@ -1,16 +1,22 @@
 ---
 import Hero from "../components/Hero.astro";
-import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import AboutMyself from "../components/AboutMyself.astro";
 import TechStack from "../components/TechStack.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
 import EducationCard from "../components/EducationCard.astro";
+import ContactSection from "../components/ContactSection.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Víctor Bouza - Full Stack & Backend Developer">
-  <main class="min-h-screen bg-slate-50 dark:bg-slate-950 px-4 sm:px-6 lg:px-8">
+  <main class="w-full">
     <Hero />
-    <ExperienceTimeline />
+    <AboutMyself />
     <TechStack />
+    <ServicesSection />
+    <ExperienceTimeline />
     <EducationCard />
+    <ContactSection />
   </main>
 </Layout>

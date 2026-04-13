@@ -5,9 +5,16 @@ const profileCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
+    subtitle: z.string().optional(),
     bio: z.string(),
     location: z.string(),
-    english_level: z.string()
+    english_level: z.string(),
+    age: z.string().optional(),
+    phone: z.string().optional(),
+    email: z.string().optional(),
+    github: z.string().optional(),
+    linkedin: z.string().optional(),
+    cv_link: z.string().optional()
   })
 });
 
@@ -43,9 +50,20 @@ const educationCollection = defineCollection({
   })
 });
 
+const servicesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    icon: z.string().optional(),
+    order: z.number().optional()
+  })
+})
+
 export const collections = {
   'profile': profileCollection,
   'experience': experienceCollection,
   'skills': skillsCollection,
-  'education': educationCollection
+  'education': educationCollection,
+  'services': servicesCollection
 };
